@@ -27,7 +27,7 @@ const LoginForm = () => {
       if (email === 'admin@gmail.com' && password === 'password') {
          console.log('login successful');
          localStorage.setItem('opensky-token', data);
-         navigate('/dashboard?authenticated=true');
+         navigate('/dashboard');
       } else {
          setFormError('Invalid username or password');
       }

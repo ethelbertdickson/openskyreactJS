@@ -1,44 +1,54 @@
-import { useLocation, Navigate, useNavigate } from 'react-router-dom';
-import TableHead from './TableHead';
-import TableBody from './TableBody';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+
 import useOpenSky from '../hooks/useOpenSky';
+import TableBody from './TableBody';
+import TableHead from './TableHead';
 
 const Dashboard = () => {
-   const users = useOpenSky();
-   const location = useLocation();
+   const { users, isLoading, error } = useOpenSky();
    const navigate = useNavigate();
-
-   const authenticated = new URLSearchParams(location.search).get(
-      'authenticated',
-   );
+   const token = localStorage.getItem('opensky-token');
 
    const handleLogout = () => {
-      localStorage.clear();
+      localStorage.removeItem('opensky-token');
       navigate('/');
    };
 
-   if (authenticated === 'true') {
-      return (
-         <>
-            <div className='d-flex mb-3'>
-               <div className='p-2 fs-3 text-dark'>Open Sky Dashboard</div>
-               <button
-                  className='btn text-warning ms-auto p-2'
-                  onClick={handleLogout}
-               >
-                  Logout
-               </button>
-            </div>
-
-            <table className='table'>
-               <TableHead />
-               <TableBody users={users} />
-            </table>
-         </>
-      );
-   } else {
+   if (!token) {
       return <Navigate to='/' />;
    }
+
+   if (isLoading) {
+      return <div>Loading...</div>;
+   }
+
+   if (error) {
+      return (
+         <div>
+            Unable to fetch the requested data, check your internet connection
+            and try again.
+         </div>
+      );
+   }
+
+   return (
+      <>
+         <div className='d-flex mb-3'>
+            <div className='p-2 fs-3 text-dark'>Open Sky Dashboard</div>
+            <button
+               className='btn text-warning ms-auto p-2'
+               onClick={handleLogout}
+            >
+               Logout
+            </button>
+         </div>
+
+         <table className='table'>
+            <TableHead />
+            <TableBody users={users} />
+         </table>
+      </>
+   );
 };
 
 export default Dashboard;
