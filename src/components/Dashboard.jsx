@@ -1,4 +1,4 @@
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import useOpenSky from '../hooks/useOpenSky';
 import TableBody from './TableBody';
@@ -33,8 +33,8 @@ const Dashboard = () => {
 
    return (
       <>
-         <div className='d-flex mb-3'>
-            <div className='p-2 fs-3 text-dark'>Open Sky Dashboard</div>
+         <div className='d-flex mb-3 bg-dark sticky-top sticky-lg-top text-warning mb-0 p-3'>
+            <div className='p-2 fs-3 '>Open Sky Dashboard</div>
             <button
                className='btn text-warning ms-auto p-2'
                onClick={handleLogout}
