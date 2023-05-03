@@ -21,9 +21,9 @@ const Dashboard = () => {
       return (
          <>
             <div className='d-flex mb-3'>
-               <div className='p-2 fs-3'>Dashboard</div>
+               <div className='p-2 fs-3 text-dark'>Open Sky Dashboard</div>
                <button
-                  className='btn btn-link ms-auto p-2'
+                  className='btn text-warning ms-auto p-2'
                   onClick={handleLogout}
                >
                   Logout
