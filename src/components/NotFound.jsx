@@ -9,7 +9,7 @@ const NotFound = () => {
                <p class='text-danger'>
                   The page you are looking for does not exist.
                </p>
-               <Link to='/'>Go to Home</Link>
+               <Link to='/dashboard'>Go to Dashboard</Link>
             </div>
          </div>
       </div>
