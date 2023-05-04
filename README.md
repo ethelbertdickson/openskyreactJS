@@ -8,9 +8,7 @@ Clone the repository: Open a terminal or command prompt and clone the React repo
 on your local machine by running the following command:
 
 
-git clone <repository_url>
-
-Replace <repository_url> with the URL of the repository that you want to clone.
+git clone https://github.com/ethelbertdickson/openskyreactJS
 
 Install dependencies: Once you have cloned the repository, navigate to the project directory and install 
 the project dependencies by running the following command:
@@ -24,7 +22,7 @@ Run the project: After installing the dependencies, run the following command to
 npm start
 
 This command builds the project and starts a development server. 
-You can then open your web browser and navigate to http://localhost:3000 to view the running React app.
+You can then open your web browser and navigate to http://localhost:5173 to view the running React app.
 
 Build the app: If you want to create a production build of the React app, run the following command:
 
