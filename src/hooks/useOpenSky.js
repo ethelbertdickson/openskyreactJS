@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { base64Credentials } from '../config/config';
 
 const useOpenSky = () => {
-   const [users, setUsers] = useState([]);
+   const [flights, setFlights] = useState([]);
    const [isLoading, setLoading] = useState(true);
    const [error, setError] = useState(null);
 
@@ -20,8 +20,8 @@ const useOpenSky = () => {
       )
          .then((res) => res.json())
          .then((data) => {
-            // console.log(data);
-            setUsers(data);
+            console.log(data);
+            setFlights(data);
             setLoading(false);
          })
          .catch((error) => {
@@ -30,7 +30,7 @@ const useOpenSky = () => {
          });
    }, []);
 
-   return { users, isLoading, error };
+   return { flights, isLoading, error };
 };
 
 export default useOpenSky;

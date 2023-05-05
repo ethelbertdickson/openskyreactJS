@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-const TableBody = ({ users }) => {
+const TableBody = ({ flightData }) => {
    return (
       <tbody>
-         {users.map(
+         {flightData.map(
             (
                {
                   estDepartureAirport,
@@ -44,7 +44,7 @@ const TableBody = ({ users }) => {
 };
 
 TableBody.propTypes = {
-   users: PropTypes.array.isRequired,
+   flightData: PropTypes.array.isRequired,
 };
 
 export default TableBody;
