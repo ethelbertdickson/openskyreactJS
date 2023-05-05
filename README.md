@@ -7,6 +7,7 @@ The project covers:
 3. routing
 4. route protection
 5. Not-Found page
+6. Search
 
 INSTALLATION GUIDE:
 Install Node.js and npm: React requires Node.js and npm to be installed on your machine. 
