@@ -8,7 +8,7 @@
   ## Not needed for static site generators.
   [[redirects]]
     from = "/404.html"
-    to = "/not-found"
+    to = "/NotFound"
     status = 400
 
   ## (optional) Settings for Netlify Dev
