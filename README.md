@@ -8,6 +8,7 @@ The project covers:
 4. route protection
 5. Not-Found page
 6. Search
+7. Sorting by flight details
 
 INSTALLATION GUIDE:
 Install Node.js and npm: React requires Node.js and npm to be installed on your machine. 
