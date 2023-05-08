@@ -6,8 +6,11 @@ import TableBody from './TableBody';
 import TableHead from './TableHead';
 
 const Dashboard = () => {
+   const [sortOrder, setSortOrder] = useState('asc');
+   const [sortBy, setSortBy] = useState();
    const [searchQuery, setSearchQuery] = useState('');
    const { flights, isLoading, error } = useOpenSky();
+
    const navigate = useNavigate();
    const token = localStorage.getItem('opensky-token');
 
@@ -16,11 +19,30 @@ const Dashboard = () => {
       navigate('/');
    };
 
-   const filteredFlights = flights.filter(
+   const sortedFlight = [...flights].sort((a, b) => {
+      if (a[sortBy] < b[sortBy]) {
+         return sortOrder === 'asc' ? -1 : 1;
+      } else if (a[sortBy] > b[sortBy]) {
+         return sortOrder === 'asc' ? 1 : -1;
+      } else {
+         return 0;
+      }
+   });
+
+   const filteredFlights = sortedFlight.filter(
       (flight) =>
          flight.callsign &&
          flight.callsign.toLowerCase().includes(searchQuery.toLowerCase()),
    );
+
+   const handleSort = (columnName) => {
+      if (columnName === sortBy) {
+         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+      } else {
+         setSortBy(columnName);
+         setSortOrder('asc');
+      }
+   };
 
    if (!token) {
       return <Navigate to='/' />;
@@ -63,7 +85,7 @@ const Dashboard = () => {
          </div>
 
          <table className='table'>
-            <TableHead />
+            <TableHead onSort={handleSort} />
             <TableBody flightData={filteredFlights} />
          </table>
       </>

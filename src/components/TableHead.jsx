@@ -1,12 +1,46 @@
-const TableHead = () => {
+const TableHead = ({ onSort }) => {
+   //
+   const handleClick = (columnName) => {
+      onSort(columnName);
+   };
    return (
       <thead>
          <tr>
-            <th scope='col'>Flight</th>
-            <th scope='col'>Departure Airport</th>
-            <th scope='col'>Departing Time</th>
-            <th scope='col'>Arrival Airport</th>
-            <th scope='col'>Arriving Time</th>
+            <th
+               style={{ cursor: 'pointer' }}
+               scope='col'
+               onClick={() => handleClick('callsign')}
+            >
+               Flight
+            </th>
+            <th
+               style={{ cursor: 'pointer' }}
+               scope='col'
+               onClick={() => handleClick('estDepartureAirport')}
+            >
+               Departure Airport
+            </th>
+            <th
+               style={{ cursor: 'pointer' }}
+               scope='col'
+               onClick={() => handleClick('firstSeen')}
+            >
+               Departing Time
+            </th>
+            <th
+               style={{ cursor: 'pointer' }}
+               scope='col'
+               onClick={() => handleClick('estArrivalAirport')}
+            >
+               Arrival Airport
+            </th>
+            <th
+               style={{ cursor: 'pointer' }}
+               scope='col'
+               onClick={() => handleClick('lastSeen')}
+            >
+               Arriving Time
+            </th>
          </tr>
       </thead>
    );
