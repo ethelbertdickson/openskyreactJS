@@ -3,12 +3,13 @@
 OpenskyReactJS is a ReactJS project that fetches flights data from opensky api and render it in a web page.
 The project covers:
 1. user authentication
-2. custom hook - for fetching flight data
-3. routing
-4. route protection
-5. Not-Found page
-6. Search
-7. Sorting by flight details
+2. Login Form Validation
+3. custom hook - for fetching flight data
+4. routing
+5. route protection
+6. Not-Found page
+7. Search
+8. Sorting by flight details
 
 INSTALLATION GUIDE:
 Install Node.js and npm: React requires Node.js and npm to be installed on your machine. 
